@@ -6,7 +6,7 @@ const myApiKey =
 axios.defaults.headers.common['Authorization'] = myApiKey;
 
 export default async function cinemaApi() {
-    const response = await axios.get('/3/trending/movie/week', {
+    const response = await axios.get('/3/trending/movie/day', {
         // headers: {
         //     Authorization:
         //         'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMWYyODFhYWY2N2IzNGRiODgyN2FmNGVkZDU0MDUyYiIsInN1YiI6IjY1ZjA2YTIzNDU1N2EwMDE4NTI5YzU3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.d1ec98Z4QeM8yD9E6xxQKd4oRvWBc8Za69OuS1wEe1M',
@@ -19,5 +19,5 @@ export default async function cinemaApi() {
             // per_page: 12,
         },
     });
-    return response.data;
+    return response.data.results;
 }
