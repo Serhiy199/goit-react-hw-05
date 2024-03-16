@@ -1,22 +1,22 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import favoriteCinemaDay from '../../cinema-api';
-import css from './HomePage.module.css';
 import Loader from '../../components/Loader';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { MoviesCats } from '../../cinema-api';
 
-export default function HomePage() {
-    const [favoritCinema, setFavoritCinema] = useState([]);
+export default function MovieCast() {
+    const [movieCast, setMovieCast] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const { movieId } = useParams();
 
     useEffect(() => {
         async function getCinema() {
             try {
                 setError(false);
                 setLoading(true);
-                const data = await favoriteCinemaDay();
-
-                setFavoritCinema(data);
+                const data = await MoviesCats(movieId);
+                // console.log(data.cast);
+                setMovieCast(data.cast);
             } catch (error) {
                 setError(true);
             } finally {
@@ -24,19 +24,15 @@ export default function HomePage() {
             }
         }
         getCinema();
-    }, []);
+    }, [movieId]);
 
     return (
         <>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
             <ul>
-                {favoritCinema.map(list => {
-                    return (
-                        <li key={list.id}>
-                            <Link to={`/movie/${list.id}`}>{list.title}</Link>
-                        </li>
-                    );
+                {movieCast.map(cast => {
+                    return <li key={cast.id}>{cast.name}</li>;
                 })}
             </ul>
         </>
