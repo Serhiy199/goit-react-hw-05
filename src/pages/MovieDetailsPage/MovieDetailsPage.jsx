@@ -20,7 +20,7 @@ export default function MovieDetailsPage() {
                 setError(false);
                 setLoading(true);
                 const data = await CinemaId(movieId);
-                console.log(data);
+                // console.log(data);
                 setMovieDetailsPage(data);
             } catch (error) {
                 setError(true);
