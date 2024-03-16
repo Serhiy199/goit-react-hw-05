@@ -6,6 +6,7 @@ import Navigation from './components/Navigation/Navigation';
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 import MovieCast from './components/MovieCast/MovieCast';
 import MovieReviews from './components/MovieReviews/MovieReviews';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 function App() {
     // console.log(favoritCinema);
@@ -18,7 +19,7 @@ function App() {
                     <Route path="cast" element={<MovieCast />} />
                     <Route path="reviews" element={<MovieReviews />} />
                 </Route>
-                {/* <Route path="*" element={<NotFound />} /> */}
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </>
     );
