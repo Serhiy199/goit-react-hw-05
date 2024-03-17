@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import favoriteCinemaDay from '../../cinema-api';
 import css from './HomePage.module.css';
 import Loader from '../../components/Loader';
+import MoviesList from '../../components/MovieList/MoviesList';
 
 export default function HomePage() {
     const [favoritCinema, setFavoritCinema] = useState([]);
@@ -32,11 +32,7 @@ export default function HomePage() {
             {loading && <Loader />}
             <ul>
                 {favoritCinema.map(list => {
-                    return (
-                        <li key={list.id}>
-                            <Link to={`/movie/${list.id}`}>{list.title}</Link>
-                        </li>
-                    );
+                    return <MoviesList key={list.id} onList={list} />;
                 })}
             </ul>
         </>
