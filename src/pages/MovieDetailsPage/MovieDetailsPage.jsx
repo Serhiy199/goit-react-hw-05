@@ -9,6 +9,7 @@ export default function MovieDetailsPage() {
         'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
 
     const [movieDetailsPage, setMovieDetailsPage] = useState([]);
+    const [movieGenres, setMovieGenres] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const { movieId } = useParams();
@@ -27,6 +28,7 @@ export default function MovieDetailsPage() {
                 const data = await CinemaId(movieId);
                 // console.log(data.genres);
                 setMovieDetailsPage(data);
+                setMovieGenres(data.genres);
             } catch (error) {
                 setError(true);
             } finally {
@@ -35,8 +37,9 @@ export default function MovieDetailsPage() {
         }
         getCinema();
     }, [movieId]);
-    let genres = movieDetailsPage.genres;
-
+    movieGenres.map(list => {
+        console.log(list.name);
+    });
     return (
         <>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
@@ -63,9 +66,9 @@ export default function MovieDetailsPage() {
                     <h3>Overview</h3>
                     <p>{movieDetailsPage.overview}</p>
                     <h3>Genres</h3>
-                    {/* {genres.map(list => {
-                        <li key={list.id}>yes</li>;
-                    })} */}
+                    {movieGenres.map(list => {
+                        return <span key={list.id}>{list.name}</span>;
+                    })}
                 </div>
             </div>
 
