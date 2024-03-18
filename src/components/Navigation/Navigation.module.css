@@ -1,0 +1,13 @@
+.link {
+    margin-right: 20px;
+    color: black;
+    font-size: 20px;
+}
+
+.link:hover {
+    color: yellowgreen;
+}
+
+.active {
+    color: blue;
+}

@@ -4,7 +4,8 @@ import './App.css';
 
 // import HomePage from './pages/HomePage/HomePage';
 import Navigation from './components/Navigation/Navigation';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader';
+
 // import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 // import MovieCast from './components/MovieCast/MovieCast';
 // import MovieReviews from './components/MovieReviews/MovieReviews';
@@ -17,7 +18,6 @@ const MovieCast = lazy(() => import('./components/MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
-// import Loader from '../../components/Loader';
 
 function App() {
     // console.log(favoritCinema);
@@ -28,7 +28,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/movies" element={<MoviesPage />} />
-                    <Route path="/movie/:movieId" element={<MovieDetailsPage />}>
+                    <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
                         <Route path="cast" element={<MovieCast />} />
                         <Route path="reviews" element={<MovieReviews />} />
                     </Route>

@@ -1,5 +1,5 @@
 import { MovieSearch } from '../../cinema-api';
-import Loader from '../../components/Loader';
+import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import MoviesList from '../../components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';

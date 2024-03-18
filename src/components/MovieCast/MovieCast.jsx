@@ -1,4 +1,4 @@
-import Loader from '../../components/Loader';
+import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { MoviesCats } from '../../cinema-api';

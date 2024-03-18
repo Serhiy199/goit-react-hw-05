@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import Loader from '../../components/Loader';
+import Loader from '../../components/Loader/Loader';
 import { CinemaId } from '../../cinema-api';
 import { GoArrowLeft } from 'react-icons/go';
 
