@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import favoriteCinemaDay from '../../cinema-api';
-import css from './HomePage.module.css';
+import { listFavMov, title } from './HomePage.module.css';
 import Loader from '../../components/Loader/Loader';
 import MoviesList from '../../components/MovieList/MoviesList';
 
@@ -30,8 +30,8 @@ export default function HomePage() {
         <>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <h2>A list of the most popular movies today</h2>
-            <ul>
+            <h2 className={title}>A list of the most popular movies today</h2>
+            <ul className={listFavMov}>
                 {favoritCinema.map(list => {
                     return <MoviesList key={list.id} onList={list} />;
                 })}

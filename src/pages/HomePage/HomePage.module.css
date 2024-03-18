@@ -1,0 +1,8 @@
+.listFavMov {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.title {
+    text-align: center;
+}
