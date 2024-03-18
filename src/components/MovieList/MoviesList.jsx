@@ -12,7 +12,7 @@ export default function MoviesList({ onList }) {
                 className={img}
                 src={
                     onList.poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${onList.backdrop_path}`
+                        ? `https://image.tmdb.org/t/p/w500/${onList.poster_path}`
                         : defaultImg
                 }
                 width={250}

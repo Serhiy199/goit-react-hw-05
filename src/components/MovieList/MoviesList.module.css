@@ -14,7 +14,7 @@
 
 .img {
     display: block;
-    max-height: 200px;
+    min-height: 576px;
     width: 100%;
     height: auto;
     margin-bottom: 10px;
