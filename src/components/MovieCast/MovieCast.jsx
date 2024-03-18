@@ -2,6 +2,7 @@ import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { MoviesCats } from '../../cinema-api';
+import { listCast, list, img } from './MovieCast.module.css';
 
 export default function MovieCast() {
     const defaultImg =
@@ -33,11 +34,12 @@ export default function MovieCast() {
         <>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <ul>
+            <ul className={listCast}>
                 {movieCast.map(cast => {
                     return (
-                        <li key={cast.id}>
+                        <li className={list} key={cast.id}>
                             <img
+                                className={img}
                                 src={
                                     cast.profile_path
                                         ? `https://image.tmdb.org/t/p/w200/${cast.profile_path}`

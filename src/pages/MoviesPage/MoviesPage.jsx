@@ -12,7 +12,7 @@ export default function MoviesPage() {
     const [querySearch, setQuerySearch] = useSearchParams();
 
     const value = querySearch.get('query') ?? '';
-    // const location = useLocation();
+    
 
     useEffect(() => {
         async function getCinema() {

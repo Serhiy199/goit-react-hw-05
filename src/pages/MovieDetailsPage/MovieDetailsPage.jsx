@@ -3,6 +3,16 @@ import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import { CinemaId } from '../../cinema-api';
 import { GoArrowLeft } from 'react-icons/go';
+import {
+    container,
+    titleMovie,
+    listGenres,
+    titleGenres,
+    movieOverview,
+    userScore,
+    link,
+    backLink,
+} from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
     const [movieData, setMovieData] = useState([]);
@@ -21,7 +31,7 @@ export default function MovieDetailsPage() {
                 setError(false);
                 setLoading(true);
                 const data = await CinemaId(movieId);
-                // console.log(data.genres);
+
                 setMovieData(data);
                 setMovieGenres(data.genres);
             } catch (error) {
@@ -40,8 +50,10 @@ export default function MovieDetailsPage() {
         <>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <Link to={backLinkRef.current}>{<GoArrowLeft />} Back to list movies</Link>
-            <div>
+            <Link className={backLink} to={backLinkRef.current}>
+                {<GoArrowLeft />} Back to list movies
+            </Link>
+            <div className={container}>
                 {' '}
                 <div>
                     {' '}
@@ -51,28 +63,39 @@ export default function MovieDetailsPage() {
                                 ? `https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`
                                 : defaultImg
                         }
-                        width={250}
+                        width={500}
                         alt="poster"
                     />
                 </div>
                 <div>
                     {' '}
-                    <h2>{movieData.title}</h2>
-                    <p>User Score: {Math.round((movieData.vote_average * 100) / 10)}%</p>
-                    <h3>Overview</h3>
-                    <p>{movieData.overview}</p>
-                    <h3>Genres</h3>
+                    <h2 className={titleMovie}>{movieData.title}</h2>
+                    <p>
+                        <span className={userScore}>User Score:</span>{' '}
+                        {Math.round((movieData.vote_average * 100) / 10)}%
+                    </p>
+                    <h3 className={titleGenres}>Overview</h3>
+                    <p className={movieOverview}>{movieData.overview}</p>
+                    <h3 className={titleGenres}>Genres</h3>
                     {movieGenres.map(list => {
-                        return <span key={list.id}>{list.name}</span>;
+                        return (
+                            <span className={listGenres} key={list.id}>
+                                {list.name}
+                            </span>
+                        );
                     })}
                 </div>
             </div>
 
             <div>
-                <h4>Additional information</h4>
+                <h3>Additional information</h3>
                 <Suspense fallback={''}>
-                    <Link to={'cast'}>Cast</Link>
-                    <Link to={'reviews'}>Reviews</Link>
+                    <Link className={link} to={'cast'}>
+                        Cast
+                    </Link>
+                    <Link className={link} to={'reviews'}>
+                        Reviews
+                    </Link>
                     <Outlet />
                 </Suspense>
             </div>

@@ -1,0 +1,39 @@
+.backLink {
+    color: rgb(0, 140, 255);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.container {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+}
+
+.titleMovie {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.listGenres {
+    margin-right: 20px;
+}
+.titleGenres {
+    margin-bottom: 0px;
+}
+
+.movieOverview {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.userScore {
+    font-weight: 700;
+}
+
+.link {
+    margin-right: 12px;
+    font-size: 18px;
+}

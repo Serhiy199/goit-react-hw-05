@@ -2,13 +2,13 @@ import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { MoviesReviews } from '../../cinema-api';
+import { text, titleAutor } from './MovieReviews.module.css';
 
 export default function MovieReviews() {
     const [movieReview, setMovieReview] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const { movieId } = useParams();
-    console.log(movieReview.length);
 
     useEffect(() => {
         async function getCinema() {
@@ -38,8 +38,8 @@ export default function MovieReviews() {
                     movieReview.map(review => {
                         return (
                             <li key={review.id}>
-                                <h5>Author: {review.author}</h5>
-                                <p>{review.content}</p>
+                                <h4 className={titleAutor}>Author: {review.author}</h4>
+                                <p className={text}>{review.content}</p>
                             </li>
                         );
                     })
