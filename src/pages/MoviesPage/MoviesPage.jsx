@@ -3,6 +3,7 @@ import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import MoviesList from '../../components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
+import { searchButton, searchInput, listSearch } from './MoviesPage.module.css';
 
 export default function MoviesPage() {
     const [movieSearch, setMovieSearch] = useState([]);
@@ -41,14 +42,17 @@ export default function MoviesPage() {
     console.log(movieSearch.length);
     return (
         <>
+            <h2>Search movies</h2>
             <form onSubmit={moviesFilter}>
-                <input type="text" name="moviesSearch" />
-                <button type="submit">Search</button>
+                <input className={searchInput} type="text" name="moviesSearch" />
+                <button className={searchButton} type="submit">
+                    Search
+                </button>
             </form>
 
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <ul>
+            <ul className={listSearch}>
                 {movieSearch.map(list => {
                     return <MoviesList key={list.id} onList={list} />;
                 })}
