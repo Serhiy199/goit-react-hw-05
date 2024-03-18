@@ -1,7 +1,15 @@
+.headerStyle {
+    padding-top: 16px;
+    padding-left: 16px;
+    background-color: #5b6dcd;
+
+    border-radius: 0px 0px 24px 24px;
+}
 .link {
     margin-right: 20px;
-    color: black;
+
     font-size: 20px;
+    color: white;
 }
 
 .link:hover {
@@ -9,5 +17,5 @@
 }
 
 .active {
-    color: blue;
+    color: rgb(229, 255, 0);
 }
