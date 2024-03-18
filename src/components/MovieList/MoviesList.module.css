@@ -3,9 +3,7 @@
     font-size: 18px;
     background-color: #fff;
     width: calc((100% - 32px) / 3);
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
@@ -23,8 +21,15 @@
 .listMovie {
     color: black;
     align-items: center;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .listMovie:hover {
     color: blue;
+}
+
+.title {
+    margin-bottom: 0;
+    padding-bottom: 10px;
 }
