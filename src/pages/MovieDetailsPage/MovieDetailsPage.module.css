@@ -1,5 +1,6 @@
 .backLink {
     color: rgb(0, 140, 255);
+    margin-top: 16px;
     font-size: 18px;
     font-weight: 600;
     display: flex;

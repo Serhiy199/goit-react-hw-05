@@ -3,7 +3,7 @@ import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import MoviesList from '../../components/MovieList/MoviesList';
 import { useSearchParams } from 'react-router-dom';
-import { searchButton, searchInput, listSearch } from './MoviesPage.module.css';
+import { searchButton, searchInput } from './MoviesPage.module.css';
 
 export default function MoviesPage() {
     const [movieSearch, setMovieSearch] = useState([]);
@@ -12,7 +12,6 @@ export default function MoviesPage() {
     const [querySearch, setQuerySearch] = useSearchParams();
 
     const value = querySearch.get('query') ?? '';
-    
 
     useEffect(() => {
         async function getCinema() {
@@ -49,14 +48,9 @@ export default function MoviesPage() {
                     Search
                 </button>
             </form>
-
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <ul className={listSearch}>
-                {movieSearch.map(list => {
-                    return <MoviesList key={list.id} onList={list} />;
-                })}
-            </ul>
+            <MoviesList movie={movieSearch} />;
         </>
     );
 }
