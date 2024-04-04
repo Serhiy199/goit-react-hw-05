@@ -38,7 +38,7 @@ export default function MoviesPage() {
         setQuerySearch(querySearch);
         form.reset();
     };
-    console.log(movieSearch.length);
+
     return (
         <>
             <h2>Search movies</h2>
@@ -50,7 +50,7 @@ export default function MoviesPage() {
             </form>
             {error && <p>Whoops, something went wrong! Please try reloading this page!</p>}
             {loading && <Loader />}
-            <MoviesList movie={movieSearch} />;
+            <MoviesList movie={movieSearch} />
         </>
     );
 }
